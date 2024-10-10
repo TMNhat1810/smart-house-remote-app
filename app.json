@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "smart-house-remote-controller",
-    "slug": "smart-house-remote-controller",
+    "slug": "iot",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -18,10 +18,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.tmnhat1810.iot"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "89d28565-cfdf-489f-b29b-580cf74fa8f6"
+      }
+    },
+    "owner": "tmnhat1810"
   }
 }
