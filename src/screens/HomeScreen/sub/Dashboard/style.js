@@ -3,9 +3,7 @@ import { colors } from '../../../../themes'
 
 export const styles = StyleSheet.create({
   container: {
-    paddingTop: 10,
     flexDirection: 'column',
-    gap: 10,
   },
 })
 

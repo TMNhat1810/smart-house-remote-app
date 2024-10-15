@@ -1,7 +1,6 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { StyleSheet, Text, TouchableOpacity } from 'react-native'
-import { BlurView } from 'expo-blur'
+import { Text, TouchableOpacity } from 'react-native'
 import { Icon } from 'react-native-paper'
 import { colors } from '../../themes'
 
@@ -15,9 +14,10 @@ const routes = [
     component: Dashboard,
     tabBarIcon: 'view-dashboard',
     label: 'Dashboard',
+    start: true,
   },
   { name: 'Camera', component: Camera, tabBarIcon: 'camera', label: 'Camera' },
-  { name: 'Menu', component: Menu, tabBarIcon: 'menu', label: 'Menu' },
+  { name: 'Menu', component: Menu, tabBarIcon: 'menu', label: 'Menu', end: true },
 ]
 
 export default function HomeScreen() {
@@ -29,11 +29,12 @@ export default function HomeScreen() {
         tabBarStyle: {
           position: 'absolute',
           height: 55,
-          borderColor: 'black',
+          borderColor: colors.darkGreen,
+          borderWidth: 1,
+          borderBottomWidth: 0,
+          borderTopRightRadius: 20,
+          borderTopLeftRadius: 20,
         },
-        tabBarBackground: () => (
-          <BlurView tint="dark" intensity={100} style={StyleSheet.absoluteFill} />
-        ),
       }}
     >
       {routes.map((route) => (
@@ -46,23 +47,27 @@ export default function HomeScreen() {
               <Icon
                 source={route.tabBarIcon}
                 size={size}
-                color={focused ? colors.darkblue : colors.gray0}
+                color={focused ? colors.gray0 : colors.darkGreen}
               />
             ),
             tabBarLabel: ({ focused }) => (
               <Text
                 style={{
                   fontSize: 13,
-                  color: focused ? colors.darkblue : colors.gray0,
+                  color: focused ? colors.gray0 : colors.darkGreen,
                 }}
               >
                 {route.label}
               </Text>
             ),
-            tabBarActiveBackgroundColor: 'rgba(0, 0, 0, 0.4)',
+            tabBarActiveBackgroundColor: colors.darkGreen,
             tabBarButton: (props) => (
               <TouchableOpacity {...props} activeOpacity={0.6} />
             ),
+            tabBarItemStyle: [
+              route.start && { borderTopLeftRadius: 20 },
+              route.end && { borderTopRightRadius: 20 },
+            ],
           }}
         />
       ))}

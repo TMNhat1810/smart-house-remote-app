@@ -1,7 +1,8 @@
 import axios from 'axios'
+import { API_ENDPOINT } from '../../api'
 
 const instances = axios.create({
-  baseURL: '',
+  baseURL: API_ENDPOINT,
   timeout: 300000,
 })
 
