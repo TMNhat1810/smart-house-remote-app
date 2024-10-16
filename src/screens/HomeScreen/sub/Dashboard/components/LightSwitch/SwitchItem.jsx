@@ -1,23 +1,23 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Text, View } from 'react-native'
 import { styles, textStyles } from './style'
 import { Switch } from 'react-native-switch'
 import { Icon, TouchableRipple } from 'react-native-paper'
 
-export default function SwitchItem({ item }) {
-  const [lightOn, setLightOn] = useState(false)
+export default function SwitchItem({ item, callback }) {
+  const { on } = item
 
   return (
     <TouchableRipple
-      style={[styles.lightPannel, { borderColor: lightOn ? '#71a279' : '#9a7265' }]}
-      onPress={() => setLightOn(!lightOn)}
+      style={[styles.lightPannel, { borderColor: on ? '#71a279' : '#9a7265' }]}
+      onPress={callback}
     >
       <View style={styles.itemContainer}>
         <View style={styles.left}>
           <View style={{ backgroundColor: 'white', borderRadius: 100, padding: 10 }}>
             <Icon
-              source={lightOn ? 'lightbulb-on' : 'lightbulb-outline'}
-              color={lightOn ? '#febb50' : 'black'}
+              source={on ? 'lightbulb-on' : 'lightbulb-outline'}
+              color={on ? '#febb50' : 'black'}
               size={40}
             />
           </View>
@@ -27,16 +27,14 @@ export default function SwitchItem({ item }) {
           <Text
             style={[
               { position: 'absolute', zIndex: 100, top: 5 },
-              lightOn
-                ? { left: 10, color: '#71a279' }
-                : { right: 5, color: '#9a7265' },
+              on ? { left: 10, color: '#71a279' } : { right: 5, color: '#9a7265' },
             ]}
           >
-            {lightOn ? 'ON' : 'OFF'}
+            {on ? 'ON' : 'OFF'}
           </Text>
           <Switch
-            value={lightOn}
-            onValueChange={(value) => setLightOn(value)}
+            value={on}
+            onValueChange={callback}
             activeText=""
             inActiveText=""
             backgroundActive="#e0ebe2"
@@ -46,7 +44,7 @@ export default function SwitchItem({ item }) {
             circleBorderWidth={3}
             containerStyle={{
               borderWidth: 2,
-              borderColor: lightOn ? '#71a279' : '#9a7265',
+              borderColor: on ? '#71a279' : '#9a7265',
             }}
           />
         </View>

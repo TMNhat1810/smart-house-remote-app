@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import { Text, View } from 'react-native'
 import { styles, textStyles } from './style'
-import { socket } from '../../../../../../utils'
-import { Icon, Surface } from 'react-native-paper'
+import { EventHandler } from '../../../../../../utils'
+import { Icon } from 'react-native-paper'
 
 export default function EnvMonitor() {
   const [data, setData] = useState({ temperature: 30, humidity: 88, gas: 100 })
 
   useEffect(() => {
-    // socket.onmessage = (event) => {
-    //   const data = JSON.parse(event.data)
-    //   if (data.temperature && data.humidity)
-    //     setData({ temperature: data.temperature, humidity: data.humidity, gas: 0 })
-    // }
-    // return () => {
-    //   socket.onmessage = null
-    // }
+    EventHandler.set('sensor', (data) => {
+      setData({
+        temperature: data.temperature,
+        humidity: data.humidity,
+        gas: data.gas,
+      })
+    })
+    return () => {
+      EventHandler.delete('sensor')
+    }
   }, [])
 
   return (
