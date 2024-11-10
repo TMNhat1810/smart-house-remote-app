@@ -5,6 +5,12 @@ export const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
   },
+  swiper: {
+    flex: 1,
+    alignItems: 'center',
+    alignSelf: 'center',
+    justifyContent: 'center',
+  },
 })
 
 export const textStyles = StyleSheet.create({

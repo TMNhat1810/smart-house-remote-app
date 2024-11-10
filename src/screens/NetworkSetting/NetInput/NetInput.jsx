@@ -13,25 +13,33 @@ function IPPortFromURL(URL) {
 }
 
 function IPPortToURL(data) {
-  return 'http://' + data.ip + (data.port === '80' ? '' : ':' + data.port)
+  return (
+    'http://' +
+    data.ip +
+    (data.port ? (data.port === '80' ? '' : ':' + data.port) : '')
+  )
 }
 
 export default function NetInput() {
-  const { setServerURL, setEspURL, serverURL, espURL } = useContext(AppContext)
+  const { setServerURL, setEspURL, setCamURL, serverURL, espURL, camURL } =
+    useContext(AppContext)
 
   const [server, setServer] = useState(IPPortFromURL(serverURL))
   const [esp, setEsp] = useState(IPPortFromURL(espURL))
+  const [cam, setCam] = useState(IPPortFromURL(camURL))
   const [changing, setChanging] = useState(false)
 
   const handleCancel = () => {
     setServer(IPPortFromURL(serverURL))
     setEsp(IPPortFromURL(espURL))
+    setCam(IPPortFromURL(camURL))
     setChanging(false)
   }
 
   const handleSave = async () => {
     setServerURL(IPPortToURL(server))
     setEspURL(IPPortToURL(esp))
+    setCamURL(IPPortToURL(cam))
     setChanging(false)
   }
 
@@ -92,6 +100,36 @@ export default function NetInput() {
             onChangeText={(text) => {
               setChanging(true)
               setEsp({ ...esp, port: text })
+            }}
+          />
+        </View>
+      </View>
+      <View style={styles.pannel}>
+        <Text style={[textStyles.pannelTitle]}>Camera</Text>
+        <View style={styles.inputContainer}>
+          <TextInput
+            label="IP"
+            mode="outlined"
+            inputMode="decimal"
+            activeOutlineColor="#4c7380"
+            style={[styles.ipInput, styles.input]}
+            value={cam.ip}
+            onChangeText={(text) => {
+              setChanging(true)
+              setCam({ ...cam, ip: text })
+            }}
+          />
+          <TextInput
+            label="Port"
+            mode="outlined"
+            inputMode="decimal"
+            activeOutlineColor="#4c7380"
+            activeUnderlineColor="#4c7380"
+            style={[styles.portInput, styles.input]}
+            value={cam.port}
+            onChangeText={(text) => {
+              setChanging(true)
+              setCam({ ...cam, port: text })
             }}
           />
         </View>

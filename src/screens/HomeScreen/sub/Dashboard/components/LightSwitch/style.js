@@ -2,7 +2,9 @@ import { StyleSheet } from 'react-native'
 import { colors } from '../../../../../../themes'
 
 export const styles = StyleSheet.create({
-  cover: { backgroundColor: colors.darkGreen },
+  cover: {
+    backgroundColor: colors.darkGreen,
+  },
   container: {
     flexDirection: 'column',
     justifyContent: 'center',

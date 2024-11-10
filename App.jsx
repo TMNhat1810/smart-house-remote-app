@@ -6,7 +6,7 @@ import AppContextProvider from './src/contexts/app.context'
 
 export default function App() {
   return (
-    <PaperProvider>
+    <PaperProvider theme="light">
       <SafeAreaProvider>
         <AppContextProvider>
           <Layout />
