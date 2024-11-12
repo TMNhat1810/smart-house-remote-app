@@ -12,6 +12,17 @@ export const styles = StyleSheet.create({
     width: deviceConfig.width,
     height: 300,
   },
+  errorContainer: {
+    alignSelf: 'center',
+    justifyContent: 'center',
+    flex: 1,
+  },
+  wvReloadButton: {
+    position: 'absolute',
+    zIndex: 100,
+    right: 5,
+    top: 5,
+  },
   historyContainer: {
     flex: 1,
     marginHorizontal: 20,

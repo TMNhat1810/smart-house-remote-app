@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native'
 import { colors } from '../../../../themes'
+import { deviceConfig } from '../../../../configs'
 
 export const styles = StyleSheet.create({
   container: {
@@ -11,6 +12,9 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
     justifyContent: 'center',
   },
+  scrollContainer: {},
+  scrollInnerContainer: { height: deviceConfig.height - 250 },
+  scrollContentContainer: {},
 })
 
 export const textStyles = StyleSheet.create({

@@ -13,6 +13,11 @@
     "production": {
       "android": {
         "buildType": "apk"
+      },
+      "env": {
+        "EXPO_PUBLIC_API_ENDPOINT": "http://192.168.1.249:8000",
+        "EXPO_PUBLIC_ESP_SERVER": "http://192.168.1.125",
+        "EXPO_PUBLIC_CAM_IP": "http://192.168.1.10:5000"
       }
     }
   },

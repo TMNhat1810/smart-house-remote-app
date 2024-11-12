@@ -5,7 +5,7 @@ import { EventHandler } from '../../../../../../utils'
 import { Icon } from 'react-native-paper'
 
 export default function EnvMonitor() {
-  const [data, setData] = useState({ temperature: 30, humidity: 88, gas: 100 })
+  const [data, setData] = useState({ temperature: 27, humidity: 10.32, gas: 0 })
 
   useEffect(() => {
     EventHandler.set('sensor', (data) => {
@@ -24,8 +24,8 @@ export default function EnvMonitor() {
     <View style={styles.container}>
       <View style={styles.topHeader}>
         <View>
-          <Text style={[textStyles.welcome]}>Hế lô,</Text>
-          <Text>Bottom text</Text>
+          <Text style={[textStyles.welcome]}>Hello</Text>
+          <Text>Have a nice day!</Text>
         </View>
         <View style={{ backgroundColor: 'white', borderRadius: 100, padding: 5 }}>
           <Icon source="bell" size={35} />
