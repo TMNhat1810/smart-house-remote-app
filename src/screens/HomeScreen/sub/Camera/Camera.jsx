@@ -14,6 +14,7 @@ export default function Camera() {
 
   const handleReload = () => {
     setUri('')
+    setError(false)
     // eslint-disable-next-line no-undef
     setTimeout(() => {
       setUri(camURL + '/stream')
@@ -25,7 +26,7 @@ export default function Camera() {
       <View style={styles.streamView}>
         {hasError ? (
           <View style={styles.errorContainer}>
-            <Text style={styles.errorText}>Could not connect to the website.</Text>
+            <Text style={styles.errorText}>Không thể kết nối tới Camera.</Text>
           </View>
         ) : (
           <WebView source={{ uri: uri }} onError={() => setError(true)} />

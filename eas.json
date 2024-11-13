@@ -14,6 +14,9 @@
       "android": {
         "buildType": "apk"
       },
+      "ios": {
+        "simulator": false
+      },
       "env": {
         "EXPO_PUBLIC_API_ENDPOINT": "http://192.168.1.249:8000",
         "EXPO_PUBLIC_ESP_SERVER": "http://192.168.1.125",
