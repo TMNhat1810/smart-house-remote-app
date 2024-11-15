@@ -60,7 +60,7 @@ export const textStyles = StyleSheet.create({
     fontWeight: 'bold',
   },
   data: {
-    fontSize: 25,
+    fontSize: 20,
     fontWeight: 'bold',
   },
   title: {},

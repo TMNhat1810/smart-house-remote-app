@@ -16,6 +16,10 @@
       "bundleIdentifier": "com.tmnhat1810.iot"
     },
     "android": {
+      "config": {
+        "permissions": ["INTERNET"],
+        "usesCleartextTraffic": true
+      },
       "adaptiveIcon": {
         "foregroundImage": "./assets/logo.png",
         "backgroundColor": "#ffffff"

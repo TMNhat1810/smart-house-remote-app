@@ -5,7 +5,7 @@ import { EventHandler } from '../../../../../../utils'
 import { Icon } from 'react-native-paper'
 
 export default function EnvMonitor() {
-  const [data, setData] = useState({ temperature: 27, humidity: 10.32, gas: 0 })
+  const [data, setData] = useState({ temperature: 27, humidity: 10.32, gas: 20 })
 
   useEffect(() => {
     EventHandler.set('sensor', (data) => {
@@ -47,7 +47,7 @@ export default function EnvMonitor() {
               <View
                 style={{ backgroundColor: 'white', borderRadius: 100, padding: 2 }}
               >
-                <Icon source="water" size={30} color="#6cabce" />
+                <Icon source="water" size={20} color="#6cabce" />
               </View>
               <Text style={[textStyles.data]}>{data.humidity}%</Text>
             </View>
@@ -60,7 +60,7 @@ export default function EnvMonitor() {
               <View
                 style={{ backgroundColor: 'white', borderRadius: 100, padding: 2 }}
               >
-                <Icon source="thermometer-lines" size={30} color="#851310" />
+                <Icon source="thermometer-lines" size={20} color="#851310" />
               </View>
               <Text style={[textStyles.data]}>{data.temperature}&deg;C</Text>
             </View>
@@ -73,7 +73,7 @@ export default function EnvMonitor() {
               <View
                 style={{ backgroundColor: 'white', borderRadius: 100, padding: 2 }}
               >
-                <Icon source="molecule-co2" size={30} color="#5390e3" />
+                <Icon source="molecule-co2" size={20} color="#5390e3" />
               </View>
               <Text style={[textStyles.data]}>{data.gas}</Text>
             </View>

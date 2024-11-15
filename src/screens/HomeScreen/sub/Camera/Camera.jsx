@@ -29,7 +29,11 @@ export default function Camera() {
             <Text style={styles.errorText}>Không thể kết nối tới Camera.</Text>
           </View>
         ) : (
-          <WebView source={{ uri: uri }} onError={() => setError(true)} />
+          <WebView
+            source={{ uri: uri }}
+            onError={() => setError(true)}
+            mixedContentMode="always"
+          />
         )}
         <TouchableRipple onPress={handleReload} style={styles.wvReloadButton}>
           <IconButton icon="reload" iconColor="#4c7380" size={40} />
